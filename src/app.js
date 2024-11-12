@@ -3,14 +3,32 @@
 //Debug the type of data provided
 //Return the types concatenated in a single variable
 
+function moreAboutHome(address, distanceFromTown, hasNeighbours){
+    return typeof address + typeof distanceFromTown + typeof hasNeighbours
+}
+
+
 //Progression 2:
 //Check if the data given is of the right type
 //parents = String, noOfSiblings = Number, isNuclearFamily = Boolean
+function moreAboutKaren(parents, noOfSiblings, isNuclearFamily){
+    return typeof parents=="string" && typeof noOfSiblings=="number" && typeof isNuclearFamily=="boolean" 
 
+
+}
 //Progression 3:
 //Lily is suspicious about Karen's new friend
 //Karen tells her friend's age and even writes it down
 //Check which one those is not a number (NaN) and return that value
+function doesFriendExist(ageInText, ageInNumber){
+    if (isNaN(ageInText)){
+        return ageInText
+    }
+    if (isNaN(ageInNumber)){
+        return ageInNumber
+    }
+    // console.log(typeof ageInText==typeof NaN,typeof ageInNumber==typeof NaN)
+}
 
 //Progression 4:
 //Lily gave Karen x sweets
@@ -19,9 +37,28 @@
 //Her friend divided the remaining sweets into 2 parts for each
 //How many sweets did her friend get to eat?
 
+function sweetTooth(totalNoOfSweets, sweetsConsumedByKaren, sweetsConsumedInNMeters, metersToTravel){
+    // console.log(totalNoOfSweets, sweetsConsumedByKaren, sweetsConsumedInNMeters, metersToTravel);
+    if(typeof totalNoOfSweets != "number" || typeof sweetsConsumedByKaren != "number" || typeof sweetsConsumedInNMeters != "number" || typeof metersToTravel != "number") return "No sweets for Karen's friend"
+    // else if (!totalNoOfSweets ) return 0
+    let sweetConsumedInTravel = sweetsConsumedInNMeters * metersToTravel;
+    let remaining = totalNoOfSweets-sweetsConsumedByKaren-sweetConsumedInTravel
+
+    if (remaining<=0){
+        return 0
+    }
+     
+    return Math.floor(remaining/2)
+
+}
+
 //Progression 5:
 //As Lily moves closer, it gets colder. She checks the temperature on her mobile
 //It only shows in fahrenheit. Convert the data to celsius and return it.
+
+function convertToCelsius(fahrenheit){
+    return typeof fahrenheit=="number"?(fahrenheit-32)*(5/9):"Technical Error!"
+}
 
 //Progression 6:
 //Lily can now do multiple things to deal with this
@@ -31,6 +68,21 @@
 //4. Lock her daughter in her room
 //Given a value, return which of these above actions Lily would take
 
+function aDifficultChoice(choice){
+    switch(choice){
+        case 1:
+            return "Take her daughter to a doctor"
+
+        case -1:
+            return "Break down and give up all hope"
+        case "I give up":
+            return "Refused to do anything for Karen"
+        default:
+            return "Wasn't able to decide"
+    }
+}
+
+
 //Progression 7:
 //Lily realized that she'd hurt her daughter
 //All she wants now is for her to stop crying
@@ -39,3 +91,8 @@
 //Take all of Lily's strategies and concatenate them to a single var
 //Seperate the strategies by a single space
 //Return the length of the complete strategy
+
+
+// function consoleKaren(strategies){
+//     console.log(strategies);
+// }
